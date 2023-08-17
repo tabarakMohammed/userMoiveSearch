@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+
+    @{
+        if (User?.Identity?.IsAuthenticated ?? false)
+        {
+        <input class="text-md-center" />
+            }
+
+        }
+</div>

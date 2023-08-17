@@ -1,0 +1,146 @@
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\appsettings.json
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\user moive search.exe
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\user moive search.deps.json
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\user moive search.runtimeconfig.json
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\user moive search.runtimeconfig.dev.json
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\user moive search.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\user moive search.pdb
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\user moive search.Views.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\user moive search.Views.pdb
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.csproj.AssemblyReference.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.AssemblyInfoInputs.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.AssemblyInfo.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.csproj.CoreCompileInputs.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.MvcApplicationPartsAssemblyInfo.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.RazorAssemblyInfo.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.RazorAssemblyInfo.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\staticwebassets\user moive search.StaticWebAssets.Manifest.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\staticwebassets\user moive search.StaticWebAssets.xml
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\scopedcss\bundle\user moive search.styles.css
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.TagHelpers.input.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.TagHelpers.output.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.RazorCoreGenerate.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.RazorTargetAssemblyInfo.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.RazorTargetAssemblyInfo.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.Views.pdb
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.dll
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.pdb
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.genruntimeconfig.cache
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\user moive search.csproj.CopyComplete
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\AspNetCore.Identity.MongoDbCore.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\DnsClient.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\MongoDbGenericRepository.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\SharpCompress.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\runtimes\linux\native\libmongocrypt.so
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\runtimes\osx\native\libmongocrypt.dylib
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\runtimes\win\native\mongocrypt.dll
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Pages\logot.cshtml.g.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Pages\login.cshtml.g.cs
+D:\programming\user moive search\user moive search\obj\Debug\netcoreapp3.1\Razor\Pages\Register.cshtml.g.cs
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Elasticsearch.Net.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\Nest.dll
+D:\programming\user moive search\user moive search\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
