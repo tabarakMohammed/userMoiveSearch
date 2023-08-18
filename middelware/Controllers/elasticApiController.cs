@@ -27,48 +27,91 @@ namespace user_moive_search.middelware.Controllers
 
 
 
-        [HttpGet(Name = "GetAllMovies")]
+        [Route("~/api/GetAll")]
+        [HttpGet]
         public async Task<IActionResult> Get(string keyword)
         {
+           
             var result = await _elasticClient.SearchAsync<Movie>(
                              s => s.Query(
                                  q => q.QueryString(
                                      d => d.Query('*' + keyword + '*')
                                  )).Size(5000));
 
-            _logger.LogInformation("ProductsController Get - ", DateTime.UtcNow);
+
+            /*
+            var result = await _elasticClient.SearchAsync<Movie>(
+                             s => s.StoredFields(
+                                 sf => sf.Fields(
+                                            m => m.id,     
+                                            m => m.movieName,   
+                                            m => m.movieGenie     
+                                        )
+                                     ).Query(q => q
+                                    .MatchAll()
+                                )
+                                     );
+
+            */
+
+
+
+
+            _logger.LogInformation("elasticApiController Get - ", DateTime.UtcNow);
             return Ok(result.Documents.ToList());
         }
 
-        [HttpPost(Name = "AddProduct")]
-        public async Task<IActionResult> Post(Movie movie)
-        {
-            // Add product to ELS index
-            /*
-            var product1 = new Product
-            {
-                Description = "Product 1",
-                Id = 1,
-                Price = 200,
-                Measurement = "2",
-                Quantity = 90,
-                ShowPrice = true,
-                Title = "Nike Shoes",
-                Unit = "10"
-            };
-            */
-            // Index product dto
-            await _elasticClient.IndexDocumentAsync(movie);
 
-            _logger.LogInformation("ProductsController Get - ", DateTime.UtcNow);
+
+        [Route("~/api/AddMovie")]
+        [HttpPost]
+        public async Task<IActionResult> Post(Movie movie)
+        {    
+               await _elasticClient.IndexDocumentAsync(movie);         
+
+            _logger.LogInformation("elasticApiController post - ", DateTime.UtcNow);
+            return Ok();
+        }
+
+        /*remove all data from elastic*/
+        [Route("~/api/deleteIndex")]
+        [HttpGet]
+        public async Task<IActionResult> deleteIndex()
+        {
+           await this._elasticClient.Indices.DeleteAsync("movie");
+
+            _logger.LogInformation("elasticApiController delete - ", DateTime.UtcNow);
             return Ok();
         }
 
 
-
-
-
-
+        /*add json list of data to elastic*/
+        [Route("~/api/addBulk")]
+        [HttpPost]
+        public  IActionResult addBulk(List<Movie> movie)
+        {
+             this._elasticClient.BulkAll(movie, 
+                 m=>m.Index("movie")
+                // how long to wait between retries
+                .BackOffTime("30s")
+                // how many retries are attempted if a failure occurs
+                .BackOffRetries(2)
+                // refresh the index once the bulk operation completes
+                .RefreshOnCompleted()
+                /*
+                // how many concurrent bulk requests to make
+                .MaxDegreeOfParallelism(Environment.ProcessorCount)
+                // number of items per bulk request
+                .Size(1000)
+                */
+            ).Wait(TimeSpan.FromMinutes(15), next =>
+            {
+                _logger.LogInformation("elasticApiController Bulk add - ", DateTime.UtcNow);
+               
+                // do something on each response e.g. write number of batches indexed to console
+            });
+            return  Ok();
+        }
 
        
     }

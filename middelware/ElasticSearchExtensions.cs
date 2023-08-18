@@ -23,11 +23,6 @@ namespace user_moive_search.middelware
             var settings = new ConnectionSettings(new Uri(url)) //.BasicAuthentication(userName, pass)
                 .PrettyJson()
                 .DefaultIndex(defaultIndex);
-            /*
-
-            var settings = new ConnectionSettings(new Uri(url))
-            .DefaultIndex(defaultIndex);
-             */
 
             AddDefaultMappings(settings);
 
@@ -53,5 +48,7 @@ namespace user_moive_search.middelware
                 index => index.Map<Movie>(x => x.AutoMap())
             );
         }
+
+
     }
 }
