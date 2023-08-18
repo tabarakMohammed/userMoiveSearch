@@ -29,37 +29,48 @@ namespace user_moive_search.middelware.Controllers
 
         [Route("~/api/GetAll")]
         [HttpGet]
-        public async Task<IActionResult> Get(string keyword)
+        public async Task<IActionResult> GetAll(string keyword)
         {
-           
+
+          
             var result = await _elasticClient.SearchAsync<Movie>(
                              s => s.Query(
                                  q => q.QueryString(
-                                     d => d.Query('*' + keyword + '*')
+                                     d => d.Query('*' + keyword + '*') 
                                  )).Size(5000));
-
-
-            /*
-            var result = await _elasticClient.SearchAsync<Movie>(
-                             s => s.StoredFields(
-                                 sf => sf.Fields(
-                                            m => m.id,     
-                                            m => m.movieName,   
-                                            m => m.movieGenie     
-                                        )
-                                     ).Query(q => q
-                                    .MatchAll()
-                                )
-                                     );
-
-            */
-
-
 
 
             _logger.LogInformation("elasticApiController Get - ", DateTime.UtcNow);
             return Ok(result.Documents.ToList());
         }
+
+        
+        [Route("~/api/GetOnMovieName")]
+        [HttpGet]
+        public async Task<IActionResult> GetOnMovieName(string keyword)
+        {
+
+       
+
+            var result = await _elasticClient.SearchAsync<Movie>(s => s
+                        .Query(q => q
+                            .Match(m => m
+                                .Field(f => f.movieName)
+                                .Query('*' + keyword + '*')
+                            )
+                        )
+                    );
+
+
+            _logger.LogInformation("elasticApiController ON Movie Name - ", DateTime.UtcNow);
+            return Ok(result.Documents.ToList());
+        }
+
+
+
+
+
+
 
 
 
