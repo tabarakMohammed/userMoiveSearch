@@ -4,22 +4,17 @@
     ViewData["Title"] = "Home page";
 }
 
-<script>
- 
-
-</script>
 
 
-<div class="text-center">
 
-    @{
-        if (User?.Identity?.IsAuthenticated ?? false)
-        {
 
-            <input class="input-group-lg" type="text" id="movieName" placeholder="Movie Name" />
+
+@if (User?.Identity?.IsAuthenticated ?? false)
+{
+    <div style="position:absolute; left: 40%;top: 30%">
+        <div id="div1">
+            <input class="input-group-lg" type="text" id="movieName" placeholder="Movie Name" name="keyword" />
             <input type="hidden" id="Id" name="Id" />
-
-        }
-
-    }
-</div>
+        </div>
+    </div>
+}

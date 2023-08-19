@@ -3,17 +3,49 @@
 
 // Write your Javascript code.
 
+/*
+$('#movieName').keyup(function () {
+    suggestions.innerHTML = ''
+    keyword = document.getElementById("movieName").value;
+    fetchDataAsync("/api/GetOnMovieName?keyword='" + keyword + "'")
+
+        .then(data => moves.push(...data));
+
+
+     html = moves.map(moviez => {
+        return `
+      <li>
+        <span class="name">${moviez.movieName}, ${moviez.movieGenie}</span>
+      </li>
+    `;
+    }).join('');
+
+    suggestions.innerHTML = html;
+   
+    moves = [];
+   
+});
+
+
+ async function fetchDataAsync(url) {
+    var response = await fetch(url);
+     return await response.json();
+}  
+*/
+
+
+
 $(function () {
     $("#movieName").autocomplete({
         source: function (request, response) {
             $.ajax({
-                url: "/api/GetOnMovieName?keyword='"+$("#movieName").val()+"'",
+                url: "/api/GetOnMovieName?keyword='" + document.getElementById("movieName").value + "'",
                 data:request,
                 dataType: "Json",
                 type: "GET",
                 contentType: "application/json; charset-utf-8",
                 success: function (data) {
-                    response($.map(data, function (item) {       
+                    response($.map(data, function (item) {                   
                         return item.movieName + " : " + item.movieGenie;
                     }))
                 },
@@ -23,6 +55,7 @@ $(function () {
             $("#movieName").val(ui.item.movieName);
             $("#Id").val(ui.item.id);
         },
-        minLength: 3,
+       
     });
 });
+
