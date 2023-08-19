@@ -45,8 +45,8 @@ $(function () {
                 type: "GET",
                 contentType: "application/json; charset-utf-8",
                 success: function (data) {
-                    response($.map(data, function (item) {                   
-                        return item.movieName + " : " + item.movieGenie;
+                    response($.map(data, function (item) {
+                        return item.movieName + " : " + item.movieGenie + " : " + item.id;
                     }))
                 },
             });
