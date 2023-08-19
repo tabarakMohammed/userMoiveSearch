@@ -44,14 +44,11 @@ namespace user_moive_search.middelware.Controllers
             return Ok(result.Documents.ToList());
         }
 
-        
+        [Produces("application/json")]
         [Route("~/api/GetOnMovieName")]
         [HttpGet]
         public async Task<IActionResult> GetOnMovieName(string keyword)
         {
-
-       
-
             var result = await _elasticClient.SearchAsync<Movie>(s => s
                         .Query(q => q
                             .Match(m => m
@@ -63,7 +60,8 @@ namespace user_moive_search.middelware.Controllers
 
 
             _logger.LogInformation("elasticApiController ON Movie Name - ", DateTime.UtcNow);
-            return Ok(result.Documents.ToList());
+            var data = result.Documents.ToList();
+            return Ok(data);
         }
 
 
