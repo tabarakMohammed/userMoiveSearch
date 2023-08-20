@@ -26,7 +26,8 @@ namespace user_moive_search.middelware
 
             AddDefaultMappings(settings);
 
-            var client = new ElasticClient(settings);         
+            var client = new ElasticClient(settings);  
+            
             /*Utilaze inside elasticSearch to using there services*/
             services.AddSingleton<IElasticClient>(client);
 

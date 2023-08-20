@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using user_moive_search.DataAcessLayer.elasticDataModel;
+using user_moive_search.middelware.workers.ELK;
 
 namespace user_moive_search.middelware.Controllers
 {
@@ -17,12 +18,16 @@ namespace user_moive_search.middelware.Controllers
 
         private readonly IElasticClient _elasticClient;
         private readonly ILogger<elasticApiController> _logger;
-
+        private readonly ElkService _elkService;
         public elasticApiController(IElasticClient elasticClient,
-                        ILogger<elasticApiController> logger)
+                        ILogger<elasticApiController> logger,
+                        ElkService elkService
+                       )
          {
+
             _logger = logger;
-            _elasticClient = elasticClient;
+            _elasticClient = elasticClient;    
+            _elkService = elkService;
         }
 
 
@@ -32,16 +37,25 @@ namespace user_moive_search.middelware.Controllers
         public async Task<IActionResult> GetAll(string keyword)
         {
 
+
+            var result = await _elkService.foundByAllData(keyword);
+
+            if (result != null)
+            {
+
+                return Ok(result);
+
+            }
+           
+            else
           
-            var result = await _elasticClient.SearchAsync<Movie>(
-                             s => s.Query(
-                                 q => q.QueryString(
-                                     d => d.Query('*' + keyword + '*') 
-                                 )).Size(5000));
+            {
+
+                return BadRequest("False");
+
+            }
 
 
-            _logger.LogInformation("elasticApiController Get - ", DateTime.UtcNow);
-            return Ok(result.Documents.ToList());
         }
 
         [Produces("application/json")]
@@ -49,19 +63,20 @@ namespace user_moive_search.middelware.Controllers
         [HttpGet]
         public async Task<IActionResult> GetOnMovieName(string keyword)
         {
-            var result = await _elasticClient.SearchAsync<Movie>(s => s
-                        .Query(q => q
-                            .Match(m => m
-                                .Field(f => f.movieName)
-                                .Query('*' + keyword + '*')
-                            )
-                        )
-                    );
 
 
-            _logger.LogInformation("elasticApiController ON Movie Name - ", DateTime.UtcNow);
-            var data = result.Documents.ToList();
-            return Ok(data);
+            var result = await _elkService.foundByMovieName(keyword);
+           
+            if (result != null) {
+                
+                return Ok(result);
+            
+            } else {
+
+               return BadRequest("False");
+           
+            }
+
         }
 
 
@@ -75,53 +90,74 @@ namespace user_moive_search.middelware.Controllers
         [Route("~/api/AddMovie")]
         [HttpPost]
         public async Task<IActionResult> Post(Movie movie)
-        {    
-               await _elasticClient.IndexDocumentAsync(movie);         
+        {
 
-            _logger.LogInformation("elasticApiController post - ", DateTime.UtcNow);
-            return Ok();
+            var result = await _elkService.saveOneDoc(movie);
+
+            if (result)
+            {
+
+                return Ok();
+
+            }
+            else
+            {
+
+                return BadRequest("False");
+
+            }
+
         }
 
         /*remove all data from elastic*/
         [Route("~/api/deleteIndex")]
-        [HttpGet]
-        public async Task<IActionResult> deleteIndex()
+        [HttpPost]
+        public async Task<IActionResult> deleteIndex(String indexname)
         {
-           await this._elasticClient.Indices.DeleteAsync("movie");
+           //our Index name is "movie";
 
-            _logger.LogInformation("elasticApiController delete - ", DateTime.UtcNow);
-            return Ok();
+            var result = await _elkService.dropDataIndex(indexname);
+
+            if (result)
+            {
+
+                return Ok();
+
+            }
+            else
+            {
+
+                return BadRequest("False");
+
+            }
+
         }
 
 
         /*add json list of data to elastic*/
         [Route("~/api/addBulk")]
         [HttpPost]
-        public  IActionResult addBulk(List<Movie> movie)
+        public  IActionResult addBulk(List<Movie> movies)
         {
-             this._elasticClient.BulkAll(movie, 
-                 m=>m.Index("movie")
-                // how long to wait between retries
-                .BackOffTime("30s")
-                // how many retries are attempted if a failure occurs
-                .BackOffRetries(2)
-                // refresh the index once the bulk operation completes
-                .RefreshOnCompleted()
-                /*
-                // how many concurrent bulk requests to make
-                .MaxDegreeOfParallelism(Environment.ProcessorCount)
-                // number of items per bulk request
-                .Size(1000)
-                */
-            ).Wait(TimeSpan.FromMinutes(15), next =>
+
+
+            var result = _elkService.saveManyDocs(movies);
+
+            if (result )
             {
-                _logger.LogInformation("elasticApiController Bulk add - ", DateTime.UtcNow);
-               
-                // do something on each response e.g. write number of batches indexed to console
-            });
-            return  Ok();
+
+                return Ok();
+
+            }
+            else
+            {
+
+                return BadRequest("False");
+
+            }
+
         }
 
-       
+
     }
 }

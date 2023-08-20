@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Nest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,7 @@ using System.Threading.Tasks;
 using user_moive_search.Configrations;
 using user_moive_search.DataAcessLayer.Models;
 using user_moive_search.middelware;
+using user_moive_search.middelware.workers.ELK;
 
 namespace user_moive_search
 {
@@ -33,10 +36,18 @@ namespace user_moive_search
                 mongoDbSetting.conictionString, mongoDbSetting.name);
           
             services.AddElasticsearch(Configuration);
-
+            
            // services.AddControllersWithViews();
             services.AddRazorPages();
+
+
+            services.AddScoped<IElkWorker, ElkWorker>();
+            services.AddScoped<ElkService>().AddElasticsearch(Configuration);
            
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
