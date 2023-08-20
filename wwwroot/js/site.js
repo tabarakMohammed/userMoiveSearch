@@ -34,7 +34,6 @@ $('#movieName').keyup(function () {
 */
 
 
-
 var movieName;
 var id;
 $(function () {
@@ -60,7 +59,7 @@ $(function () {
         select: function (event, ui) {
            // This function is triggered when an item is selected from the dropdown
             $("#id").val(id);
-            id = "";
+           
         },
        
     });
@@ -69,6 +68,7 @@ $(function () {
             .append("<div>" + item.label + "</div>")
             .appendTo(ul)
             .on("click", function () {
+               
                 // This function is triggered when an item is clicked in the dropdown
                 var clickedItem = item.value;     
             });

@@ -5,17 +5,21 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Nest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using user_moive_search.Configrations;
+using user_moive_search.Configrations.MongoDB;
 using user_moive_search.DataAcessLayer.Models;
 using user_moive_search.middelware;
 using user_moive_search.middelware.services.Auth;
+using user_moive_search.middelware.services.Tracker;
 using user_moive_search.middelware.workers.Auth;
 using user_moive_search.middelware.workers.ELK;
+using user_moive_search.middelware.workers.Tracker;
 
 namespace user_moive_search
 {
@@ -36,12 +40,18 @@ namespace user_moive_search
             services.AddIdentity<Users, Role>().
                 AddMongoDbStores<Users, Role, Guid>(
                 mongoDbSetting.conictionString, mongoDbSetting.name);
-          
+
+            services.Configure<UserTrackerDbSettings>(
+            Configuration.GetSection("UserTrackerDatabase"));
+            services.AddSingleton(sp => sp.GetRequiredService<IOptions<UserTrackerDbSettings>>().Value);
+
             services.AddElasticsearch(Configuration);
             
            // services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddScoped<ITrackerWorker, TrackerWorker>();
+            services.AddScoped<TrackerService>();
 
             services.AddScoped<IElkWorker, ElkWorker>();
             services.AddScoped<ElkService>().AddElasticsearch(Configuration);

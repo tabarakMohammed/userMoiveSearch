@@ -5,49 +5,40 @@ using Nest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using user_moive_search.DataAcessLayer.elasticDataModel;
+using user_moive_search.DataAcessLayer.Models;
+using user_moive_search.middelware.services.Tracker;
 
 namespace user_moive_search.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly IElasticClient _elasticClient;
-        private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger, IElasticClient elasticClient)
+        [BindProperty]
+        public Trackerz Model { get; set; }
+
+        private readonly ILogger<IndexModel> _logger;
+        private readonly TrackerService _TrackerService;
+        public IndexModel(ILogger<IndexModel> logger, TrackerService trackerService)
         {
             _logger = logger;
-            _elasticClient = elasticClient;
+            _TrackerService = trackerService;
+
         }
 
-        public async Task<IActionResult> Find(string query, int page = 1, int pageSize = 5)
+
+        public async Task<IActionResult> OnPostAsync()
         {
-            var response = await _elasticClient.SearchAsync<Movie>
-        (
-                s => s.Query(q => q.QueryString(d => d.Query(query)))
-                    .From((page - 1) * pageSize)
-                    .Size(pageSize));
-
-            if (!response.IsValid)
-            {
-                // We could handle errors here by checking response.OriginalException 
-                //or response.ServerError properties
-                _logger.LogError("Failed to search documents");
-                return RedirectToPage("Index", new Movie[] { });
-            }
-            /*
-            if (page > 1)
-            {
-                ViewData["prev"] = GetSearchUrl(query, page - 1, pageSize);
-            }
-
-            if (response.IsValid && response.Total > page * pageSize)
-            {
-                ViewData["next"] = GetSearchUrl(query, page + 1, pageSize);
-            }
-            */
-            return RedirectToPage("Index", response.Documents);
+            string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            Model.userId = userId;
+            Model.numberClicked = 1;
+            
+            await _TrackerService.SaveUserTrackSearch(Model);
+            
+            return Page();
         }
+
     }
 }
