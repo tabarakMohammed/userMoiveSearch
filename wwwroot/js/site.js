@@ -35,27 +35,44 @@ $('#movieName').keyup(function () {
 
 
 
+var movieName;
+var id;
 $(function () {
     $("#movieName").autocomplete({
         source: function (request, response) {
             $.ajax({
                 url: "/api/GetOnMovieName?keyword='" + document.getElementById("movieName").value + "'",
-                data:request,
+                data:request.trim,
                 dataType: "Json",
                 type: "GET",
                 contentType: "application/json; charset-utf-8",
                 success: function (data) {
                     response($.map(data, function (item) {
-                        return item.movieName + " : " + item.movieGenie + " : " + item.id;
+                        var movieObject = new Object();
+                        movieObject.label = item.movieName + " ( " + item.movieGenie + " ) ";
+                        movieObject.value = item.movieName;
+                        id = item.id;         
+                        return movieObject;
                     }))
                 },
             });
         },
         select: function (event, ui) {
-            $("#movieName").val(ui.item.movieName);
-            $("#Id").val(ui.item.id);
+           // This function is triggered when an item is selected from the dropdown
+            $("#id").val(id);
+            id = "";
         },
        
     });
+    $.ui.autocomplete.prototype._renderItem = function (ul, item) {
+        return $("<li>")
+            .append("<div>" + item.label + "</div>")
+            .appendTo(ul)
+            .on("click", function () {
+                // This function is triggered when an item is clicked in the dropdown
+                var clickedItem = item.value;     
+            });
+    };
+  
 });
 

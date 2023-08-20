@@ -11,10 +11,16 @@
 
 @if (User?.Identity?.IsAuthenticated ?? false)
 {
-    <div style="position:absolute; left: 40%;top: 30%">
-        <div id="div1">
-            <input class="input-group-lg" type="text" id="movieName" placeholder="Movie Name" name="keyword" />
-            <input type="text" id="Id" name="Id" />
-        </div>
+
+
+
+
+    <div class="input-group col-lg-12 mt-lg-1">
+        <input type="search" id="movieName" class="form-control rounded" placeholder="Movie Name" aria-label="Search" aria-describedby="search-addon" />
+        <button type="button" class="btn btn-outline-primary">search</button>
     </div>
+
+    <input type="hidden" id="id" name="Id" />
+
+
 }
