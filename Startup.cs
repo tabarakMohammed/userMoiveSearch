@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using user_moive_search.Configrations;
 using user_moive_search.DataAcessLayer.Models;
 using user_moive_search.middelware;
+using user_moive_search.middelware.services.Auth;
+using user_moive_search.middelware.workers.Auth;
 using user_moive_search.middelware.workers.ELK;
 
 namespace user_moive_search
@@ -43,6 +45,10 @@ namespace user_moive_search
 
             services.AddScoped<IElkWorker, ElkWorker>();
             services.AddScoped<ElkService>().AddElasticsearch(Configuration);
+           
+
+            services.AddScoped<IAuthWorker, AuthWorker>();
+            services.AddScoped<AuthService>();
            
 
 

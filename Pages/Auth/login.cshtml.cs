@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using user_moive_search.DataAcessLayer.Models;
+using user_moive_search.middelware.services.Auth;
 using user_moive_search.viewModel;
 
 
@@ -13,15 +14,15 @@ namespace user_moive_search.Pages
 {
     public class loginModel : PageModel
     {
-        private UserManager<Users> _UserManger;
-        private SignInManager<Users> _signInManager;
+     
+        private AuthService _authService;
+    
         [BindProperty]
         public Login Model { get; set; }
 
-        public loginModel(UserManager<Users> userManger, SignInManager<Users> signInManager)
-        {
-            this._UserManger = userManger;
-            this._signInManager = signInManager;
+        public loginModel( AuthService authService)
+        {    
+            this._authService = authService;
         }
 
      
@@ -29,12 +30,15 @@ namespace user_moive_search.Pages
         public async Task<IActionResult> OnPostAsync(String returnUrl = null) {
             if (ModelState.IsValid)
             {
+                User user = new User();
+                user.username = Model.username;
+                user.password = Model.password;
+                user.rememberme = Model.rememberme;
 
-                Users _appUsers = await _UserManger.FindByNameAsync(Model.username);
-                if (_appUsers != null)
-                {
+                Microsoft.AspNetCore.Identity.SignInResult  result = await _authService.Login(user);
 
-                    Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(_appUsers, Model.password, Model.rememberme, false);
+               
+                   
                     if (result.Succeeded)
                     {
 
@@ -50,15 +54,9 @@ namespace user_moive_search.Pages
                         }
                     }
 
-                }
-                else
-                {
-
-                    ModelState.AddModelError("", "bad Credantial");
-
-                }
-            }
-            else { ModelState.AddModelError("", "bad Credantial"); }
+                
+              
+            } else { ModelState.AddModelError("", "bad Credantial"); }
 
             return Page();
             }

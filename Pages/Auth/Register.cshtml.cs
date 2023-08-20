@@ -6,21 +6,21 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using user_moive_search.DataAcessLayer.Models;
+using user_moive_search.middelware.services.Auth;
 
 namespace user_moive_search.Pages
 {
     public class RegisterModel : PageModel
     {
      
-        private UserManager<Users> _UserManger;
-        private SignInManager<Users> _signInManager;
+     
+        private AuthService _authService;
         [BindProperty]
         public User Model { get; set; }
      
-        public RegisterModel(UserManager<Users> userManger, SignInManager<Users> signInManager)
-        {
-            this._UserManger = userManger;
-            this._signInManager = signInManager;
+        public RegisterModel(AuthService authService)
+        {    
+            this._authService = authService;
         }
      
 
@@ -29,24 +29,17 @@ namespace user_moive_search.Pages
         {
             if (ModelState.IsValid)
             {
-                Users _appUsers = new Users
-                {
-                    UserName = Model.username
-                };
+             
 
-                IdentityResult result = await _UserManger.CreateAsync(_appUsers, Model.password);
+                IdentityResult result = await _authService.Register(Model);
                 if (result.Succeeded)
-                {
-                   await _signInManager.SignInAsync(_appUsers, false);
-                   return RedirectToPage("/Index");
-                    
+                {            
+                   return RedirectToPage("/Index");   
                 }
                 else
                 {
-
                     foreach (IdentityError error in result.Errors)
                     {
-
                         ModelState.AddModelError("", error.Description);
                     }
 
