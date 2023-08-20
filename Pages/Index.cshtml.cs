@@ -19,11 +19,10 @@ namespace user_moive_search.Pages
         [BindProperty]
         public Trackerz Model { get; set; }
 
-        private readonly ILogger<IndexModel> _logger;
+        
         private readonly TrackerService _TrackerService;
-        public IndexModel(ILogger<IndexModel> logger, TrackerService trackerService)
-        {
-            _logger = logger;
+        public IndexModel( TrackerService trackerService)
+        {   
             _TrackerService = trackerService;
 
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,10 @@ namespace user_moive_search.middelware.workers.Tracker
     public class TrackerWorker : ITrackerWorker
     {
             private readonly IMongoCollection<Trackerz> _trackerCollection;
+            private readonly ILogger<TrackerWorker> _logger;
 
-            public TrackerWorker(
+        public TrackerWorker(
+            ILogger<TrackerWorker> logger,
            IOptions<UserTrackerDbSettings> bookStoreDatabaseSettings)
             {
                 var mongoClient = new MongoClient(
@@ -24,6 +27,8 @@ namespace user_moive_search.middelware.workers.Tracker
 
                 _trackerCollection = mongoDatabase.GetCollection<Trackerz>(
                     bookStoreDatabaseSettings.Value.DatabaseName);
+
+                  _logger = logger;
             }
 
 

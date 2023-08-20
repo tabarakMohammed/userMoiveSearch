@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,12 @@ namespace user_moive_search.middelware.workers.Auth
 
         private UserManager<Users> _UserManger;
         private SignInManager<Users> _signInManager;
+        private readonly ILogger<AuthWorker> _logger;
 
-        public AuthWorker(UserManager<Users> userManger, SignInManager<Users> signInManager) {
+        public AuthWorker(UserManager<Users> userManger, SignInManager<Users> signInManager, ILogger<AuthWorker> logger) {
             this._UserManger = userManger;
             this._signInManager = signInManager;
+            this._logger = logger;
         }
 
         public async Task<SignInResult> Login(User user)
