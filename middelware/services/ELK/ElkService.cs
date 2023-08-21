@@ -41,6 +41,12 @@ namespace user_moive_search.middelware.workers.ELK
         }
 
 
+          public Task<bool> updateDateIndex(Movie movie)
+        {
+            return _IElkWorker.update(movie);
+        }
+
+
 
 
     }

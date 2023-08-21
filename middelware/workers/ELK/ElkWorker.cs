@@ -145,7 +145,5 @@ namespace user_moive_search.middelware.workers.ELK
             throw new NotImplementedException();
         }
 
-
-
     }
 }
