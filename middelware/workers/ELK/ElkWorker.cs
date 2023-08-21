@@ -3,6 +3,7 @@ using Nest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using user_moive_search.DataAcessLayer.elasticDataModel;
 
@@ -44,21 +45,27 @@ namespace user_moive_search.middelware.workers.ELK
 
         public async Task<List<Movie>> GetAllByMovieName(string movieName)
         {
+
+            string pattern = "@[^\\s\\p{L}\\p{N}]";
             try
             {
+               
+                string valdKey = Regex.Replace(movieName, pattern, " ");
+
                 var result = await _elasticClient.SearchAsync<Movie>(s => s
                         .Query(q => q
                             .Match(m => m
                                 .Field(f => f.movieName)
-                                .Query('*' + movieName + '*')
+                                .Query('*' + valdKey + '*')  
                             )
                         )
                     );
-
+               
                 return result.Documents.ToList();
             }
             catch (Exception _exception)
             {
+                
 
                _logger.LogError(" ElkWorker line 62" + DateTime.UtcNow , _exception.StackTrace);
                 return null;

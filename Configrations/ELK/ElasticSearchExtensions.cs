@@ -44,10 +44,53 @@ namespace user_moive_search.middelware
 
         private static void CreateIndex(IElasticClient client, string indexName)
         {
-            /*create indexing for elastic - setup to elastic*/
-            var createIndexResponse = client.Indices.Create(indexName,
-                index => index.Map<Movie>(x => x.AutoMap())
+            /*
+             * create indexing for elastic and improve search method - setup to elastic
+           
+            */
+
+            var createIndexResponse = client.Indices.Create(indexName, c => c
+                .Settings(s => s
+                    .Analysis(a => a
+                        .Analyzers(an => an
+                            .Custom("trigram", analyzer => analyzer
+                                .Tokenizer("standard")
+                                .Filters("lowercase", "shingle", "asciifolding")
+                                .CharFilters()
+                            )
+                            .Custom("reverse", analyzer => analyzer
+                                .Tokenizer("standard")
+                                .Filters("lowercase", "reverse", "asciifolding")
+                            )
+                        )
+                        .TokenFilters(tf => tf
+                            .Shingle("shingle", shingle => shingle
+                                .MinShingleSize(2)
+                                .MaxShingleSize(3)
+                            )
+                        )
+                    )
+                )
+                .Map<Movie>(m => m
+                    .Properties(p => p
+                        .Text(t => t
+                            .Name(n => n.movieName)
+                            .Fields(f => f
+                                .Text(tf => tf
+                                    .Name("trigram")
+                                    .Analyzer("trigram")
+                                )
+                                .Text(tf => tf
+                                    .Name("reverse")
+                                    .Analyzer("reverse")
+                                )
+                            )
+                        )
+                    )
+                )
             );
+
+
         }
 
 
