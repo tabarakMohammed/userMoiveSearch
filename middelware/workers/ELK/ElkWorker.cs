@@ -131,5 +131,14 @@ namespace user_moive_search.middelware.workers.ELK
                 return false;
             }
         }
+
+     
+        public Task<bool> update(Movie movie)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
     }
 }

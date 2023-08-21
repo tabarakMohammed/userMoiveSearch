@@ -9,10 +9,13 @@ namespace user_moive_search.middelware.workers.ELK
     {
         public Task<List<Movie>> GetAll(String movieName);
         public Task<List<Movie>> GetAllByMovieName(String movieName);
+     
         public Task<bool> PostOne(Movie movie);
         public bool PostMany(List<Movie> movies);
 
         public Task<bool> DeleteIndex(String IndexName);
+
+        public Task<bool> update(Movie movie);
 
     }
 }

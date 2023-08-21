@@ -16,9 +16,11 @@ using user_moive_search.Configrations.MongoDB;
 using user_moive_search.DataAcessLayer.Models;
 using user_moive_search.middelware;
 using user_moive_search.middelware.services.Auth;
+using user_moive_search.middelware.services.LTR;
 using user_moive_search.middelware.services.Tracker;
 using user_moive_search.middelware.workers.Auth;
 using user_moive_search.middelware.workers.ELK;
+using user_moive_search.middelware.workers.LTR;
 using user_moive_search.middelware.workers.Tracker;
 
 namespace user_moive_search
@@ -59,6 +61,9 @@ namespace user_moive_search
 
             services.AddScoped<IAuthWorker, AuthWorker>();
             services.AddScoped<AuthService>();
+            
+            services.AddScoped<ILTRworker, LTRworker>();
+            services.AddScoped<LTRService>();
 
 
             services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
