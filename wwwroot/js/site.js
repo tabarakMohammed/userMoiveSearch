@@ -3,36 +3,9 @@
 
 // Write your Javascript code.
 
-/*
-$('#movieName').keyup(function () {
-    suggestions.innerHTML = ''
-    keyword = document.getElementById("movieName").value;
-    fetchDataAsync("/api/GetOnMovieName?keyword='" + keyword + "'")
-
-        .then(data => moves.push(...data));
 
 
-     html = moves.map(moviez => {
-        return `
-      <li>
-        <span class="name">${moviez.movieName}, ${moviez.movieGenie}</span>
-      </li>
-    `;
-    }).join('');
-
-    suggestions.innerHTML = html;
-   
-    moves = [];
-   
-});
-
-
- async function fetchDataAsync(url) {
-    var response = await fetch(url);
-     return await response.json();
-}  
-*/
-
+/*Index section*/
 
 var movieName;
 var id;
@@ -57,22 +30,36 @@ $(function () {
             });
         },
         select: function (event, ui) {
-           // This function is triggered when an item is selected from the dropdown
-            $("#id").val(id);
-           
+            $("#id").val(id); 
         },
        
     });
     $.ui.autocomplete.prototype._renderItem = function (ul, item) {
         return $("<li>")
             .append("<div>" + item.label + "</div>")
+            .append('<div hidden="hidden">' + id + '</div>')
             .appendTo(ul)
             .on("click", function () {
-               
-                // This function is triggered when an item is clicked in the dropdown
-                var clickedItem = item.value;     
+                sendDataToRazor(id)
             });
     };
   
 });
 
+
+function sendDataToRazor(data) {
+    $.ajax({
+        type: 'POST',
+        url: '/Index?Handler=MouseClicked',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: JSON.stringify(data) ,
+        contentType: 'application/json',
+        success: function (response) {  
+        },
+        error: function (error) {  
+        }
+    });
+}

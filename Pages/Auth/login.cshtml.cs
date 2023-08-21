@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using user_moive_search.DataAcessLayer.Models;
 using user_moive_search.middelware.services.Auth;
-using user_moive_search.viewModel;
+
 
 
 namespace user_moive_search.Pages
@@ -18,7 +18,7 @@ namespace user_moive_search.Pages
         private AuthService _authService;
     
         [BindProperty]
-        public Login Model { get; set; }
+        public User Model { get; set; }
 
         public loginModel( AuthService authService)
         {    
@@ -30,12 +30,8 @@ namespace user_moive_search.Pages
         public async Task<IActionResult> OnPostAsync(String returnUrl = null) {
             if (ModelState.IsValid)
             {
-                User user = new User();
-                user.username = Model.username;
-                user.password = Model.password;
-                user.rememberme = Model.rememberme;
 
-                Microsoft.AspNetCore.Identity.SignInResult  result = await _authService.Login(user);
+                Microsoft.AspNetCore.Identity.SignInResult  result = await _authService.Login(Model);
 
                
                    

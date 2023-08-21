@@ -42,7 +42,7 @@ namespace user_moive_search.middelware.workers.Tracker
         {
             return await _trackerCollection.Find(
                 trackz =>
-                (trackz.userId == userId &&
+                (trackz.userId.Equals(userId) &&
                  trackz.movieId == movieId)
             ).FirstOrDefaultAsync();
         }
@@ -53,13 +53,13 @@ namespace user_moive_search.middelware.workers.Tracker
         public async Task UpdateAsync(string userId, int movieId, Trackerz updatedTrackerz)
         {
             await _trackerCollection.ReplaceOneAsync(trackz =>
-              (trackz.userId == userId &&
+              (trackz.userId.Equals(userId) &&
                trackz.movieId == movieId), updatedTrackerz);
         }
         public async Task RemoveAsync(string userId, int movieId)
         {
             await _trackerCollection.DeleteOneAsync(trackz =>
-            (trackz.userId == userId &&
+            (trackz.userId.Equals(userId) &&
                trackz.movieId == movieId));
         }
 

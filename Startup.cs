@@ -59,10 +59,9 @@ namespace user_moive_search
 
             services.AddScoped<IAuthWorker, AuthWorker>();
             services.AddScoped<AuthService>();
-           
 
 
-
+            services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 
         }
 

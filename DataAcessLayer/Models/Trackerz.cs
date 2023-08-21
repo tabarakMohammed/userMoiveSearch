@@ -11,7 +11,7 @@ namespace user_moive_search.DataAcessLayer.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string? id { get; set; }
+        public string id { get; set; }
         public string userId { get; set; }
         public int movieId { get; set; }
         public int numberClicked { get; set; }

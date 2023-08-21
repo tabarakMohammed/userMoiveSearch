@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@Html.AntiForgeryToken()
+
 
 
 
@@ -15,12 +17,12 @@
     <div class="input-group col-lg-12 mt-lg-1">
         <input type="search" id="movieName" class="form-control rounded" placeholder="Movie Name" aria-label="Search" aria-describedby="search-addon" />
         <form method="post">
-            <input asp-for="Model.movieId" type="hidden" id="id"  />
-            <button type="submit" class="btn btn-outline-primary">search</button>
+            <input asp-for="Model.movieId" type="hidden" id="id" />
+            <button type="submit" asp-page-handler="UserSearched" class="btn btn-outline-primary">search</button>
         </form>
     </div>
 
-    
+
 
 }
 

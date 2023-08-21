@@ -64,7 +64,6 @@ namespace user_moive_search.middelware.Controllers
         public async Task<IActionResult> GetOnMovieName(string keyword)
         {
 
-
             var result = await _elkService.foundByMovieName(keyword);
            
             if (result != null) {
